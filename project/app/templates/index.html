@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Imperia | Registration</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" href="/static/assets/logo.jpg" type="image/x-icon">
+</head>
+<body>
+    <section class="container" style="position: relative;">
+        <img class="logo" style="width: 50px; height: 50px; background-size: cover; position: absolute; top: 10px; left: 10px;" src="/static/assets/logo.jpg" alt="logo">
+        <header>Kurslarim uchun ro'yhatdan o'tish</header>
+        <p style="width: 100%; text-align: center; color: #c5c5c5;">Siz bilan iloji boricha tez aloqaga chiqishga harakat qilamiz.</p>
+        <form method="post" action="{% url 'home' %}" class="form">
+            {% csrf_token %}
+
+        <div class="input-box">
+            <label for="{{ form.name.id_for_label }}">Ta'liq Ismi Sharifingiz</label>
+            <!-- {{ form.name }} -->
+            <input type="text" name="{{ form.name.name }}" placeholder="To'liq nomingizni kiriting" required />
+        </div>
+
+        <div class="input-box">
+            <label for="{{ form.telegram_username.id_for_label }}">Telegram Username</label>
+            <!-- {{ form.telegram_username }} -->
+            <input type="text" name="{{ form.telegram_username.name }}" placeholder="@username" required />
+        </div>
+
+        <div class="input-box">
+            <label for="{{ form.phone.id_for_label }}">Telefon raqamingiz</label>
+            <input type="number" name="{{ form.phone.name }}" placeholder="Telefon raqamingizni kiriting" required />
+        </div>
+
+        <div class="input-box">
+            <label for="{{ form.age.id_for_label }}">Yoshingiz</label>
+            <input type="number" name="{{ form.age.name }}" placeholder="Yoshingizni kiriting" required />
+        </div>
+
+        <div class="gender-box">
+            <h3>Gender</h3>
+            <div class="gender-option">
+                <div class="gender">
+                    <input type="radio" id="check-male" name="{{ form.gender.name }}" value="male" checked />
+                    <label for="check-male">Erkak</label>
+                </div>
+                <div class="gender">
+                    <input type="radio" id="check-female" name="{{ form.gender.name }}" value="female" />
+                    <label for="check-female">Ayol</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-box">
+            <label for="{{ form.text.id_for_label }}">Qo'shimcha fikr va takliflar</label>
+            <input type="text" name="{{ form.text.name }}" placeholder="Qo'shimcha fikr va takliflarni kiriting" required />
+        </div>
+
+        <button type="submit">Jo'natish</button>
+        </form>
+      </section>
+</body>
+</html>
